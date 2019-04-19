@@ -186,7 +186,7 @@ def evaluation_metric_greedy(options, data_provision, sess, proposal_inputs, cap
         
         print('Output sentences: ')
         for out_sentence in out_sentences:
-            print(out_sentence)
+            print(out_sentence.encode('utf-8'))
 
         result = [{'timestamp': proposal['timestamp'], 'sentence': out_sentences[i]} for i, proposal in enumerate(proposal_infos)]
                     
