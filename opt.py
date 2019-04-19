@@ -93,7 +93,7 @@ def default_options():
 
 
     ### DEBUG
-    options['print_debug'] = True   # 
+    options['print_debug'] = False   # 
     options['test_tensors'] = ['video_feat_fw', 'video_feat_bw', 'proposal_fw', 'proposal_bw', 'proposal_weight']  
 
     return options
