@@ -84,7 +84,7 @@ def default_options():
     options['max_proposal_num'] = 100   # just for fast evaluation during training phase
 
     ### LOGGING
-    options['ckpt_prefix'] = 'checkpoints/' + str(options['train_id']) + '/'  # where to save your checkpoints
+    options['ckpt_prefix'] = '/afs/cs/projects/kovashka/maher/vol2/checkpoints/' + str(options['train_id']) + '/'  # where to save your checkpoints
     options['ckpt_sufix'] = ''
     options['status_file'] = options['ckpt_prefix'] + 'status.json'   # where to save your training status
     options['n_iters_display'] = 1   # frequency to display
