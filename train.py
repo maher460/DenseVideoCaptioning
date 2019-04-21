@@ -201,7 +201,8 @@ def evaluation_metric_greedy(options, data_provision, sess, proposal_inputs, cap
 
     out_data['results'] = results
     
-    resFile = 'results/%d/temp_results.json'%options['train_id']
+    # resFile = 'results/%d/temp_results.json'%options['train_id']
+    resFile = options['results_path']+'/'+str(options['train_id'])+'/temp_results.json'
     root_folder = os.path.dirname(resFile)
     if not os.path.exists(root_folder):
         os.makedirs(root_folder)
@@ -239,7 +240,9 @@ def evaluation_metric_greedy(options, data_provision, sess, proposal_inputs, cap
         avg_scores[metric] = avg_score
     
     # print output evaluation scores
-    fid = open('results/%d/score_history.txt'%options['train_id'], 'a')
+    # fid = open('results/%d/score_history.txt'%options['train_id'], 'a')
+    fid = open(options['results_path']+'/'+str(options['train_id'])+'/score_history.txt', 'a')
+    
     for metric, score in avg_scores.items():
         print('%s: %.4f'%(metric, score))
         # also write to a temp file

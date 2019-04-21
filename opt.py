@@ -16,9 +16,10 @@ def default_options():
     options = OrderedDict()
 
     ### DATA
-    options['feature_data_path'] = '/afs/cs/projects/kovashka/maher/vol2/activitynet/activitynet_c3d_fc7_stride_64_frame.hdf5' # download feature from ActivityNet website, and use a stride of 64 frames (shorten the unfolding steps for encoding LSTMs)
+    options['feature_data_path'] = '/afs/cs/projects/kovashka/maher/vol2/dense/activitynet/activitynet_c3d_fc7_stride_64_frame.hdf5' # download feature from ActivityNet website, and use a stride of 64 frames (shorten the unfolding steps for encoding LSTMs)
     options['localization_data_path'] = 'dataset/ActivityNet_Captions' 
     options['caption_data_root'] = 'dataset/ActivityNet_Captions/preprocess'
+    options['results_path'] = '/afs/cs/projects/kovashka/maher/vol2/dense/results'
     options['vocab_file'] = os.path.join(options['caption_data_root'], 'word2id.json')
     options['vocab'] = json.load(open(options['vocab_file']))  # dictionary: word to word_id
     options['vocab_size'] = len(options['vocab'])   # number of words
@@ -84,7 +85,7 @@ def default_options():
     options['max_proposal_num'] = 100   # just for fast evaluation during training phase
 
     ### LOGGING
-    options['ckpt_prefix'] = '/afs/cs/projects/kovashka/maher/vol2/checkpoints/' + str(options['train_id']) + '/'  # where to save your checkpoints
+    options['ckpt_prefix'] = '/afs/cs/projects/kovashka/maher/vol2/dense/checkpoints/' + str(options['train_id']) + '/'  # where to save your checkpoints
     options['ckpt_sufix'] = ''
     options['status_file'] = options['ckpt_prefix'] + 'status.json'   # where to save your training status
     options['n_iters_display'] = 1   # frequency to display
