@@ -33,9 +33,9 @@ class DataProvision:
 
             # TODOSIZE
             if(split=='train'):
-                tmp_ids = tmp_ids[:100]
+                tmp_ids = tmp_ids[:20]
             elif(split=='val'):
-                tmp_ids = tmp_ids[:50]
+                tmp_ids = tmp_ids[:10]
 
             self._ids[split] = tmp_ids
 
