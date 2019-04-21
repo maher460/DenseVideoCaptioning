@@ -24,24 +24,24 @@ def default_options():
     options['vocab_size'] = len(options['vocab'])   # number of words
 
     options['init_from'] = ''       # checkpoint to initialize with
-    options['init_module'] = 'all'  # all/proposal/caption, which module to initialize
+    options['init_module'] = 'caption' #'all'  # all/proposal/caption, which module to initialize
     
     options['random_seed'] = 101     # random seed
 
 
     ### MODEL CONFIG
-    options['video_feat_dim'] = 500 # dim of image feature
-    options['encoded_video_feat_dim'] = 512 # should be equal to rnn size
-    options['word_embed_size'] = 512    # size of word embedding
-    options['caption_seq_len'] = 30  # maximu length of a sentence
-    options['num_rnn_layers'] = 2         # number of RNN layers
-    options['rnn_size'] = 512        # hidden neuron size
-    options['rnn_drop'] = 0.3        # rnn dropout
-    options['num_anchors'] = 120     # number of anchors  
+    options['video_feat_dim'] =  50 #500 # dim of image feature
+    options['encoded_video_feat_dim'] = 32 #512 # should be equal to rnn size
+    options['word_embed_size'] = 32 #512    # size of word embedding
+    options['caption_seq_len'] = 11 #30  # maximu length of a sentence
+    options['num_rnn_layers'] = 1 #2         # number of RNN layers
+    options['rnn_size'] = 32 #512        # hidden neuron size
+    options['rnn_drop'] = 0.5 #0.3        # rnn dropout
+    options['num_anchors'] = 60 #120     # number of anchors  
     options['no_context'] = False   # whether to use proposal context 
     options['context_gating'] = True  # whether to apply context gating
-    options['max_proposal_len'] = 110    # max length of proposal allowed, used to construct a fixed length tensor for all proposals from one video
-    options['attention_hidden_size'] = 512  # size of hidden neuron for the attention hidden layer
+    options['max_proposal_len'] = 55 #110    # max length of proposal allowed, used to construct a fixed length tensor for all proposals from one video
+    options['attention_hidden_size'] = 128 #512  # size of hidden neuron for the attention hidden layer
 
     
     ### OPTIMIZATION
@@ -61,7 +61,7 @@ def default_options():
     options['min_lr'] = 1e-5      # minimum learning rate allowed
     options['reg'] = 1e-6        # regularization strength
     options['init_scale'] = 0.08 # the init scale for uniform, here for initializing word embedding matrix
-    options['max_epochs'] = 100  # maximum epochs
+    options['max_epochs'] = 10  # maximum epochs
     options['init_epoch'] = 0    # initial epoch (useful when starting from last checkpoint)
     options['n_eval_per_epoch'] = 1 # number of evaluations per epoch
     options['eval_init'] = True # evaluate the initialized model
@@ -81,7 +81,7 @@ def default_options():
 
     ### INFERENCE
     options['tiou_measure'] = [0.3, 0.5, 0.7, 0.9]
-    options['max_proposal_num'] = 100   # just for fast evaluation during training phase
+    options['max_proposal_num'] = 50   # just for fast evaluation during training phase
 
     ### LOGGING
     options['ckpt_prefix'] = '/afs/cs/projects/kovashka/maher/vol2/checkpoints/' + str(options['train_id']) + '/'  # where to save your checkpoints
