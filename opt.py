@@ -30,7 +30,7 @@ def default_options():
 
 
     ### MODEL CONFIG
-    options['video_feat_dim'] =  50 #500 # dim of image feature
+    options['video_feat_dim'] =  500 #500 # dim of image feature
     options['encoded_video_feat_dim'] = 32 #512 # should be equal to rnn size
     options['word_embed_size'] = 32 #512    # size of word embedding
     options['caption_seq_len'] = 11 #30  # maximu length of a sentence
