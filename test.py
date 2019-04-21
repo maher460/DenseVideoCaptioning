@@ -13,6 +13,8 @@ from model import *
 import tensorflow as tf
 import sys
 
+from gpu_picker import setup_one_gpu
+
 sys.path.insert(0, './densevid_eval-master')
 sys.path.insert(0, './densevid_eval-master/coco-caption')
 #from evaluator import *
@@ -58,7 +60,8 @@ def test(options):
     
     sess_config = tf.ConfigProto()
     sess_config.gpu_options.allow_growth=True
-    os.environ['CUDA_VISIBLE_DEVICES'] = str(options['gpu_id'])[1:-1]
+    # os.environ['CUDA_VISIBLE_DEVICES'] = str(options['gpu_id'])[1:-1]
+    setup_one_gpu()
     sess = tf.InteractiveSession(config=sess_config)
 
     # build model

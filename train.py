@@ -17,6 +17,8 @@ sys.path.insert(0, './densevid_eval-master/coco-caption')
 #from evaluator import *
 from evaluator_old import *
 
+from gpu_picker import setup_one_gpu
+
 def getKey(item):
     return item['score']
 
@@ -255,7 +257,8 @@ def train(options):
     sess_config = tf.ConfigProto()
     #sess_config.gpu_options.allow_growth=True
     sess_config.gpu_options.allow_growth=False
-    os.environ['CUDA_VISIBLE_DEVICES'] = str(options['gpu_id'])[1:-1]
+    # os.environ['CUDA_VISIBLE_DEVICES'] = str(options['gpu_id'])[1:-1]
+    setup_one_gpu()
     sess = tf.InteractiveSession(config=sess_config)
 
     print('Load data ...')
