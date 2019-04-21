@@ -30,6 +30,13 @@ class DataProvision:
         for split in self._splits:
             tmp_ids = open(os.path.join(self._options['caption_data_root'], split, 'ids.txt'), 'r').readlines()
             tmp_ids = [id.strip() for id in tmp_ids]
+
+            # TODOSIZE
+            if(split=='train'):
+                tmp_ids = tmp_ids[:100]
+            elif(split=='val'):
+                tmp_ids = tmp_ids[:50]
+
             self._ids[split] = tmp_ids
 
             self._sizes[split] = len(self._ids[split])
