@@ -220,7 +220,8 @@ def test(options):
 
     out_data['results'] = results
     
-    resFile = 'results/%d/%s_%d_proposal_result.json'%(options['train_id'], split, options['max_proposal_num'])
+    # resFile = 'results/%d/%s_%d_proposal_result.json'%(options['train_id'], split, options['max_proposal_num'])
+    resFile = options['results_path']+'/'+str(options['train_id'])+'/'+split+'_'+str(options['max_proposal_num'])+'_proposal_result.json'
 
     rootfolder = os.path.dirname(resFile)
     if not os.path.exists(rootfolder):
