@@ -62,6 +62,8 @@ class DataProvision:
         print(self._features[self._features.keys()[1]].shape)
         print(self._features.keys()[2])
         print(self._features[self._features.keys()[2]].shape)
+        print(self._features.keys()[3])
+        print(self._features[self._features.keys()[3]].shape)
         
 
         # load label weight data
