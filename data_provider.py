@@ -56,7 +56,7 @@ class DataProvision:
         self._feature_ids = features.keys()
         self._features = {video_id:np.asarray(features[video_id].values()[0]) for video_id in self._feature_ids}
         print(features)
-        print(self._features[self._features.keys()[0]].shape())
+        print(self._features[self._features.keys()[0]].shape)
         
 
         # load label weight data
