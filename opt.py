@@ -16,7 +16,7 @@ def default_options():
     options = OrderedDict()
 
     ### DATA
-    options['feature_data_path'] = '/afs/cs/projects/kovashka/maher/vol2/dense/activitynet/activitynet_c3d_fc7_stride_64_frame.hdf5' # download feature from ActivityNet website, and use a stride of 64 frames (shorten the unfolding steps for encoding LSTMs)
+    options['feature_data_path'] = '/afs/cs/projects/kovashka/maher/vol2/dense/activitynet/activitynet_c3d_fc7_stride_64_frame.pkl' # download feature from ActivityNet website, and use a stride of 64 frames (shorten the unfolding steps for encoding LSTMs)
     options['localization_data_path'] = 'dataset/ActivityNet_Captions' 
     options['caption_data_root'] = 'dataset/ActivityNet_Captions/preprocess'
     options['results_path'] = '/afs/cs/projects/kovashka/maher/vol2/dense/results'
@@ -31,7 +31,7 @@ def default_options():
 
 
     ### MODEL CONFIG
-    options['video_feat_dim'] = 500 # dim of image feature
+    options['video_feat_dim'] = 2300 # dim of image feature
     options['encoded_video_feat_dim'] = 512 # should be equal to rnn size
     options['word_embed_size'] = 512    # size of word embedding
     options['caption_seq_len'] = 30  # maximu length of a sentence
