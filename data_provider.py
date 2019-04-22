@@ -11,6 +11,7 @@ import json
 from opt import *
 import random
 import math
+import pickle
 
 np.set_printoptions(threshold=np.inf)
 
@@ -33,9 +34,9 @@ class DataProvision:
 
             # TODOSIZE
             if(split=='train'):
-                tmp_ids = tmp_ids[:20]
-            elif(split=='val'):
                 tmp_ids = tmp_ids[:10]
+            elif(split=='val'):
+                tmp_ids = tmp_ids[:5]
 
             self._ids[split] = tmp_ids
 
@@ -52,9 +53,16 @@ class DataProvision:
 
         # feature dictionary
         print('Loading c3d features ...')
-        features = h5py.File(self._options['feature_data_path'], 'r')
-        self._feature_ids = features.keys()
-        self._features = {video_id:np.asarray(features[video_id].values()[0]) for video_id in self._feature_ids}
+        if ".pkl" in self._options['feature_data_path']:
+            file = open(self._options['feature_data_path'],'rb')
+            features = pickle.load(file)
+            file.close()
+            self._feature_ids = features.keys()
+            self._features = features
+        else:
+            features = h5py.File(self._options['feature_data_path'], 'r')
+            self._feature_ids = features.keys()
+            self._features = {video_id:np.asarray(features[video_id].values()[0]) for video_id in self._feature_ids}
         print(features)
         print(self._features.keys()[0])
         print(self._features[self._features.keys()[0]].shape)
