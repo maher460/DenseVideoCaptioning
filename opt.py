@@ -49,7 +49,7 @@ def default_options():
     
     ### OPTIMIZATION
     options['gpu_id'] = [0]    # GPU ids
-    options['train_id'] = 1    # train id (useful when you have multiple runs)
+    options['train_id'] = 2    # train id (useful when you have multiple runs)
     options['solver'] = 'adam' # 'adam','rmsprop','sgd_nestreov_momentum'
     options['momentum'] =  0.9     # only valid when solver is set to momentum optimizer
     options['batch_size'] = 1   # set to 1 to avoid different proposals problem, note that current implementation only supports batch_size=1
