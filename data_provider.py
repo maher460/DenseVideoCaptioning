@@ -40,19 +40,27 @@ class DataProvision:
 
             print(len(tmp_ids))
 
+            tmp_captions = json.load(open(os.path.join(self._options['caption_data_root'], split, 'encoded_sentences.json'), 'r'))
+            captions[split] = {tmp_ids[i]:tmp_captions[i] for i in range(len(tmp_ids))}
+
             file123 = open(options['feature_vid_ids_path'], 'r')
             valid_vids = eval(file123.read())
             file123.close()
+
+            for x in tmp_ids:
+                if x.replace("v_","") not in valid_vids:
+                    del captions[split][x]
+
             tmp_ids = list(filter(lambda x: x.replace("v_","") in valid_vids, tmp_ids))
 
             print(len(tmp_ids))
-            
+            print(len(captions[split].keys()))
+
             self._ids[split] = tmp_ids
 
             self._sizes[split] = len(self._ids[split])
             
-            tmp_captions = json.load(open(os.path.join(self._options['caption_data_root'], split, 'encoded_sentences.json'), 'r'))
-            captions[split] = {tmp_ids[i]:tmp_captions[i] for i in range(len(tmp_ids))}
+            
 
         # merge two caption dictionaries
         self._captions = {}
