@@ -52,8 +52,8 @@ def default_options():
     options['momentum'] =  0.9     # only valid when solver is set to momentum optimizer
     options['batch_size'] = 1   # set to 1 to avoid different proposals problem, note that current implementation only supports batch_size=1
     options['eval_batch_size'] = 1
-    options['loss_eval_num'] = 5       # maximum evaluation batch number for loss  #TODOSIZE
-    options['metric_eval_num'] = 5     # evaluation batch number for metric    #TODOSIZE
+    options['loss_eval_num'] = 100       # maximum evaluation batch number for loss  #TODOSIZE
+    options['metric_eval_num'] = 100     # evaluation batch number for metric    #TODOSIZE
     options['learning_rate'] = 1e-3       # initial learning rate
     options['lr_decay_factor'] = 0.1      # learning rate decay factor
     options['n_epoch_to_decay'] = list(range(20,60,20))[::-1]
@@ -62,7 +62,7 @@ def default_options():
     options['min_lr'] = 1e-5      # minimum learning rate allowed
     options['reg'] = 1e-6        # regularization strength
     options['init_scale'] = 0.08 # the init scale for uniform, here for initializing word embedding matrix
-    options['max_epochs'] = 5  # maximum epochs     #TODOSIZE
+    options['max_epochs'] = 10  # maximum epochs     #TODOSIZE
     options['init_epoch'] = 0    # initial epoch (useful when starting from last checkpoint)
     options['n_eval_per_epoch'] = 1 # number of evaluations per epoch
     options['eval_init'] = True # evaluate the initialized model

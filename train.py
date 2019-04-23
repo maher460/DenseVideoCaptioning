@@ -9,6 +9,7 @@ from opt import *
 from data_provider import *
 from model import * 
 import sys
+import time
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -544,5 +545,9 @@ if __name__ == '__main__':
         print('work_dir %s exists! Pls check it.'%work_dir)
     else:
         os.makedirs(work_dir)
+    t1 = time.time()
     train(options)
+    t2 = time.time()
+    total_time = float(t2-t1) / 60
+    print("[MaherBot]: time take:" + str(total_time) + " minutes")
 
