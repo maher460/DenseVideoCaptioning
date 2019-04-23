@@ -38,11 +38,15 @@ class DataProvision:
             elif(split=='val'):
                 tmp_ids = tmp_ids[:100]
 
+            print(len(tmp_ids))
+
             file123 = open(options['feature_vid_ids_path'], 'r')
             valid_vids = eval(file123.read())
             file123.close()
             tmp_ids = list(filter(lambda x: x.replace("v_","") in valid_vids, tmp_ids))
 
+            print(len(tmp_ids))
+            
             self._ids[split] = tmp_ids
 
             self._sizes[split] = len(self._ids[split])
