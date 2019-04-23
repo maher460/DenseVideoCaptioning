@@ -49,7 +49,7 @@ def default_options():
     
     ### OPTIMIZATION
     options['gpu_id'] = [0]    # GPU ids
-    options['train_id'] = 2    # train id (useful when you have multiple runs)
+    options['train_id'] = 3    # train id (useful when you have multiple runs)
     options['solver'] = 'adam' # 'adam','rmsprop','sgd_nestreov_momentum'
     options['momentum'] =  0.9     # only valid when solver is set to momentum optimizer
     options['batch_size'] = 1   # set to 1 to avoid different proposals problem, note that current implementation only supports batch_size=1
@@ -64,7 +64,7 @@ def default_options():
     options['min_lr'] = 1e-5      # minimum learning rate allowed
     options['reg'] = 1e-6        # regularization strength
     options['init_scale'] = 0.08 # the init scale for uniform, here for initializing word embedding matrix
-    options['max_epochs'] = 10  # maximum epochs     #TODOSIZE
+    options['max_epochs'] = 20  # maximum epochs     #TODOSIZE
     options['init_epoch'] = 0    # initial epoch (useful when starting from last checkpoint)
     options['n_eval_per_epoch'] = 1 # number of evaluations per epoch
     options['eval_init'] = True # evaluate the initialized model
